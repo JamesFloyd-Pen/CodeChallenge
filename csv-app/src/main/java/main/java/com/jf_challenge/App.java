@@ -6,21 +6,23 @@ import com.opencsv.CSVReader;
 /*
     Main class file
 
-    To perform either commands, I set the command a for the user to type all to see each  every named person's total salary.
-    For command b, the user can type in CONTRACT, FULL TIME, or PARTTIME to get a specific group.
+    To perform either command, I set the command a for the user to type all to see each every named person's total salary.   
+     For command b, the user can type in CONTRACT, FULL TIME, or PARTTIME to get a specific group.
 */
 
 public class App {
+    //Lambda Statements to recall specific calculations for the total salary
     static CalcSalary employed = (hours,rate)->(hours*rate);
     static CalcSalary contractTime = (hours, rate)->(10000+(hours*rate));
 
     public static void main(String[] args) throws Exception {
 
-        Scanner inputPhase = new Scanner(System.in);  // Create a Scanner object
+        Scanner inputPhase = new Scanner(System.in);  
         System.out.println("Insert command: ");
 
         String input  = inputPhase.nextLine();
-         //String input = args(0);
+         //String input = args(0); For terminal command place holder
+         //Due to a bug, I cannot get terminal commands to work, so the Scanner is an alternative for command lines. UPPER CASE SENSITIVE
 
          switch(input)
          {
@@ -41,6 +43,10 @@ public class App {
                 break;
          }
     }
+    
+    /*
+        This printRow method takes the phase input to only print out what GROUP the person is in. 
+    */
 
     public static void printRow(String phase) throws Exception
     {
@@ -58,15 +64,14 @@ public class App {
                     hours = Integer.parseInt(line[2]);
                     role = line[3];    
                     totalSalary = calc(hours, rate, role);
-                    System.out.println(name + "'s total Salary is: " + totalSalary);  
+                    System.out.println(name + "'s total Salary is: $" + totalSalary);  
                 }
            }
         }
     }
 
     /*
-
-    This printAllRow method is a work-a-around. It is mostly duplicated code, but works around one issue with the contain phase 
+    This printAllRow method is a work-a-around. It is mostly duplicated code but works around one issue with the contain phase 
     (as in an OR phase=all prints out 4 times per name).
 
     */
@@ -85,9 +90,13 @@ public class App {
             hours = Integer.parseInt(line[2]);
             role = line[3];    
             totalSalary = calc(hours, rate, role);
-            System.out.println(name + "'s total Salary is: " + totalSalary);    
+            System.out.println(name + "'s total Salary is: $" + totalSalary);    
         }
     }
+
+    /*
+        Takes arguments from the printAllRow/printRow loops and calculate them in the right role to create the total salary from hours*rates
+    */
 
     public static int calc(int hours, int rate, String role)
     {
@@ -97,7 +106,6 @@ public class App {
         if(role.equals("FULL TIME"))
             n = employed.times(hours, rate);
         if(role.equals("PART TIME"))
-            //To check if it is capped
             n = employed.times(hours, rate);
                     if(n >= 50000)
                     n = 50000;
