@@ -9,7 +9,7 @@ import com.opencsv.CSVReader;
     This is unwanted for the final version of the program itself. 
     Yet this helps me understand how to find the solution to this problem and build upon it for the next step.
 
-    For the final implementation, please see App.Java
+    For the final implementation, please see App.Java.
 
 */
 
