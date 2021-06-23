@@ -26,8 +26,9 @@ public class Penguin  {
         String Name= "", Role ="", HourS ="", RateS="";
         int Hour = 0, Rate = 0, TotalSalary = 0, ContractTotalSal = 0;
         while ((line = reader.readNext()) != null) {
-           for(int i = 0  ; i<line.length; i++) {
-              System.out.print(line[i]+" ");
+            for(int i = 0  ; i<line.length; i++) {
+                //if(line[i].contains("CONTRACT"))
+                System.out.print(line[i]+" ");
            }
            System.out.println(" ");
            Name = line[0];
