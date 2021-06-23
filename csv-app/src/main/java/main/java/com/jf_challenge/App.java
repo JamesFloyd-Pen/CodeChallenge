@@ -5,5 +5,7 @@ package main.java.com.jf_challenge;
 */
 
 public class App {
-    
+    public static void main(String[] args) {
+        
+    }
 }

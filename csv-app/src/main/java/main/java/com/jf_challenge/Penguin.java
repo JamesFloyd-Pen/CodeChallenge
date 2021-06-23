@@ -3,7 +3,11 @@ import java.io.FileReader;
 import com.opencsv.CSVReader;
 
 /*
-    This file, Penguin File, is my first step to test the foundational steps and scalability on how the main program will perform. As such, the CSV reads a line from the CSV and prints out each line from the file itself. The last line's values are extracted for calculations of the Total Salary. This is unwanted for the final version of the program itself. Yet this helps me understand how to find the solution to this problem and build upon it for the next step.
+    This file, Penguin File, is my first step to test the foundational steps and scalability on how the main program will perform. 
+    As such, the CSV reads a line from the CSV and prints out each line from the file itself. 
+    The last line's values are extracted for calculations of the Total Salary. 
+    This is unwanted for the final version of the program itself. 
+    Yet this helps me understand how to find the solution to this problem and build upon it for the next step.
 
     For the final implementation, please see App.Java
 
@@ -37,9 +41,9 @@ public class Penguin  {
 
             if(Role.equals("CONTRACT"))
             {
-                ContractTotalSal = 10000 + ( Hour*Rate);
-                System.out.print("Total: $" + ContractTotalSal + "\n");
-                GroupSalary_Contract += ContractTotalSal;
+                TotalSalary = 10000 + ( Hour*Rate);
+                System.out.print("Total: $" + TotalSalary + "\n");
+                GroupSalary_Contract += TotalSalary;
             }
             if(Role.equals("FULL TIME"))
             {
@@ -58,7 +62,7 @@ public class Penguin  {
                 GroupSalary_PartTime+= TotalSalary;
             }
 
-           System.out.println(Name + " " + Rate + " " + Hour + " " + Role);
+           System.out.println(Name + " TotalSalary: " + TotalSalary);
         }
 
         System.out.println("Contract Group: "+ GroupSalary_Contract);
