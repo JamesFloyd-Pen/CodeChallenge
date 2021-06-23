@@ -1,5 +1,7 @@
 package main.java.com.jf_challenge;
 import java.io.FileReader;
+import java.util.Scanner;
+
 import com.opencsv.CSVReader;
 /*
     Main class file
@@ -13,7 +15,11 @@ public class App {
     static CalcSalary contractTime = (hours, rate)->(10000+(hours*rate));
 
     public static void main(String[] args) throws Exception {
-        String input  = args[0];
+
+        Scanner inputPhase = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Insert command: ");
+
+        String input  = inputPhase.nextLine();
          //String input = args(0);
 
          switch(input)
