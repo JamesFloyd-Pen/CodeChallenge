@@ -10,7 +10,7 @@ import com.opencsv.CSVReader;
      For command b, the user can type in CONTRACT, FULL TIME, or PARTTIME to get a specific group.
 */
 
-public class App {
+public class App implements CalcSalary {
     //Lambda Statements to recall specific calculations for the total salary
     static CalcSalary employed = (hours,rate)->(hours*rate);
     static CalcSalary contractTime = (hours, rate)->(10000+(hours*rate));
@@ -112,8 +112,19 @@ public class App {
         return n;
     }
 
-    interface CalcSalary
-    {
-        int times(int hours, int rate);
+    /*
+        7/1/2021 Update
+
+        A simple change to the interface as I put CalcSalary in its own file.
+
+        Here's a simple Lambda calculation for times.
+
+    */
+
+    @Override
+    public int times(int hours, int rate) {
+        // TODO Auto-generated method stub
+        return hours*rate;
     }
+
 }
